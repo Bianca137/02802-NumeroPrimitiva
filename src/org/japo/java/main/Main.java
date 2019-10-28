@@ -15,15 +15,38 @@
  */
 package org.japo.java.main;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author Bianca Antonela Glavan - biancaantonela.glavan.alum@iescamp.es
  */
 public class Main {
+
+    public static final Scanner SCN
+            = new Scanner(System.in, "Windows-1252")
+                    .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
+
     public static void main(String[] args) {
-        
-    
-        
+
+        final int primiMax = 49;
+        final int primiMin = 1;
+        int numFav;
+
+        try {
+
+            System.out.print("Numero primitiva...: ");
+            numFav = SCN.nextInt();
+
+            boolean numOK = numFav >= primiMin && numFav <= primiMax;
+
+            System.out.printf(numOK ? "El %d numero es apto%n" : "El numero %d no es apto%n", numFav);
+
+        } catch (Exception e) {
+            System.out.printf("ERROR: Entrada incorrecta");
+        }
+
     }
-    
+
 }
